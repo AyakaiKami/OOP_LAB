@@ -1,0 +1,36 @@
+#include <iostream>
+#include <fstream>
+#include <cstring>
+#include <string>
+using namespace std;
+///se returneaza suma numerelor din fisier txt
+int convertsti(string x)
+{
+    int i = 0, s = 0, p = 1;
+    while (i < x.size())
+    {
+        s = p;
+        p= 10;
+        s += x[i] - '0';
+        i++;
+    }
+    return s;
+}
+void main()
+{
+    ifstream d;
+    d.open("C:\Users\Bombita\OOP\oop1\in.txt");
+    if (d.is_open())
+    {
+        int s = 0;
+        string r;
+        while (getline(d, r))
+        {
+            s += convertsti(r);
+        }
+        d.close();
+        cout << s;
+    }
+    else
+        cout << "Nope";
+}
